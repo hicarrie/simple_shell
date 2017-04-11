@@ -37,7 +37,6 @@ typedef struct env
 int _strlen(char *s);
 int _strcmp(char *name, char *variable, unsigned int length);
 int _strncmp(char *name, char *variable, unsigned int length);
-char *_strtoupper(char *s);
 char *_strcat(char *dest, char *src);
 char *_getline(FILE *fp);
 char **_strtok(char *str);
@@ -47,8 +46,6 @@ char *path_print(void);
 char *_which(char *command);
 void _puts(char *str);
 void _printenv(void);
-int _setenv(const char *name, const char *value, int overwrite);
-int _unsetenv(const char *name);
 
 /* prototypes for the helper functions for PATH linked list */
 list_s *path_list(char *variable);
