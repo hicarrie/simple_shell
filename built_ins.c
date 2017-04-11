@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 
-	int shell_exit(char **args);
+	int shell_exit(void);
 	void shell_env(void);
 
 	char *built_in_str[] = 
@@ -16,9 +16,9 @@
 		&shell_env
 	};
 
-	int shell_exit(char **args)
+	int shell_exit(void)
 	{
-		return 0;
+		return (0);
 	}
 
 	void print_env(void)
