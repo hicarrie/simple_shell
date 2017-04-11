@@ -5,7 +5,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include <dirent.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/wait.h>
@@ -24,11 +23,10 @@ typedef struct list_s
 int _strlen(char *s);
 int _strcmp(char *name, char *variable, unsigned int length);
 int _strncmp(char *name, char *variable, unsigned int length);
+char **_strtok(char *str);
 char *_strcat(char *dest, char *src);
 char *_getline(FILE *fp);
-char **_strtok(char *str);
 char *_getenv(const char *name);
-char *_strstr(const char *name, char *variable);
 char *_which(char *command);
 void _puts(char *str);
 void _printenv(void);
