@@ -14,25 +14,12 @@
 #define TRUE 1
 #define PROMPT "$ "
 
-typedef struct token
-{
-	char *token;
-	struct token *next;
-} token_t;
-
 typedef struct list_s
 {
 	char *name;
 	char *value;
 	struct list_s *next;
 } list_s;
-
-typedef struct env
-{
-	char *name;
-	char *value;
-	struct env *next;
-} env_t;
 
 int _strlen(char *s);
 int _strcmp(char *name, char *variable, unsigned int length);
