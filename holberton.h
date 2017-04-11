@@ -42,7 +42,6 @@ char *_getline(FILE *fp);
 char **_strtok(char *str);
 char *_getenv(const char *name);
 char *_strstr(const char *name, char *variable);
-char *path_print(void);
 char *_which(char *command);
 void _puts(char *str);
 void _printenv(void);
