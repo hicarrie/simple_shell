@@ -20,11 +20,12 @@ typedef struct token
 	struct token *next;
 } token_t;
 
-typedef struct path
+typedef struct list_s
 {
-	char *dir;
-	struct path *next;
-} path_t;
+	char *name;
+	char *value;
+	struct list_s *next;
+} list_s;
 
 typedef struct env
 {
@@ -40,14 +41,19 @@ char *_strtoupper(char *s);
 char *_strcat(char *dest, char *src);
 char *_getline(FILE *fp);
 char **_strtok(char *str);
-void _puts(char *str);
-void _printenv(void);
 char *_getenv(const char *name);
 char *_strstr(const char *name, char *variable);
 char *path_print(void);
-path_t *path_list(char *variable);
+char *_which(char *command);
+void _puts(char *str);
+void _printenv(void);
 int _setenv(const char *name, const char *value, int overwrite);
 int _unsetenv(const char *name);
-char *_which(char *command);
+
+/* prototypes for the helper functions for PATH linked list */
+list_s *path_list(char *variable);
+size_t list_len(const list_s *h);
+list_s *add_node(list_s **head, const char *str);
+list_s *add_node_end(list_s **head, const char *str);
 
 #endif /* HOLBERTON_H */
