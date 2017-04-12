@@ -20,6 +20,16 @@ typedef struct list_s
 	struct list_s *next;
 } list_s;
 
+
+typedef struct built_s
+{
+	int *exit;
+	int *env;
+	struct built_s *next;
+}built_s;
+	
+
+
 int _strlen(char *s);
 int _strcmp(char *name, char *variable, unsigned int length);
 int _strncmp(char *name, char *variable, unsigned int length);
