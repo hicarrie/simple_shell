@@ -31,6 +31,10 @@ char *_which(char *command);
 void _puts(char *str);
 void _printenv(void);
 
+/* prototypes for builtins */
+void shell_env(void);
+int shell_exit(void);
+
 /* prototypes for the helper functions for PATH linked list */
 list_s *path_list(char *variable);
 size_t list_len(const list_s *h);
