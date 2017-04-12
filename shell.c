@@ -10,10 +10,10 @@ int main(void)
 	char **tokens;
 	char *full_path;
 	int status;
-	pid_t child_pid;
-	struct stat buf;
-	unsigned int length;
 	int builtin_status;
+	struct stat buf;
+	pid_t child_pid;
+	unsigned int length;
 
 	while (TRUE)
 	{
@@ -67,6 +67,7 @@ int main(void)
 			wait(&status);
 	}
 
+	free(full_path);
 	free(line);
 	free(tokens);
 

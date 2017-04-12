@@ -1,4 +1,5 @@
-#include "shell.h"
+#include "holberton.h"
+
 /**
 **helper_functions - these are helper functions for linked list
 **/
@@ -9,10 +10,10 @@
 **Return: void
 **
 **/
-void free_list(list_t *head)
+void free_list(list_s *head)
 {
-	list_t *free_list;
-	
+	list_s *free_list;
+
 	if (head == NULL)
 		return;
 
@@ -20,7 +21,8 @@ void free_list(list_t *head)
 	{
 		free_list = head;
 		head = head->next;
-		free(free_list->str);
+		free(free_list->name);
+		free(free_list->value);
 		free(free_list);
 	}
 }
@@ -36,8 +38,8 @@ void free_list(list_t *head)
 list_t *add_node_end(list_t **head, const char *str)
 {
 
-	list_t *last_node;
-	list_t *new_node;
+	list_s *last_node;
+	list_s *new_node;
 
 	new_node = *head;
 
@@ -94,7 +96,7 @@ int _strlen(const char *s)
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
 	unsigned int i;
-	listint_t *tmp, *after;
+	list_s *tmp, *after;
 
 	tmp = *head;
 

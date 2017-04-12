@@ -33,6 +33,7 @@ int _strcmp(char *name, char *variable, unsigned int length);
 int _strncmp(char *name, char *variable, unsigned int length);
 char **_strtok(char *str);
 char *_strcat(char *dest, char *src);
+char *_strcpy(char *dest, char *src);
 char *_getline(FILE *fp);
 char *_getenv(const char *name);
 char *_which(char *command);
@@ -48,6 +49,7 @@ int shell_num_builtins(built_s builtin[]);
 
 /* prototypes for the helper functions for PATH linked list */
 list_s *path_list(char *variable);
+void free_list(list_s *head);
 size_t list_len(const list_s *h);
 list_s *add_node(list_s **head, const char *str);
 list_s *add_node_end(list_s **head, const char *str);
