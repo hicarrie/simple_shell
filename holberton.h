@@ -32,8 +32,11 @@ void _puts(char *str);
 void _printenv(void);
 
 /* prototypes for builtins */
-void shell_env(void);
+
+int shell_env(void);
 int shell_exit(void);
+int builtin_execute(char **tokens);
+int shell_num_builtins(char **str);
 
 /* prototypes for the helper functions for PATH linked list */
 list_s *path_list(char *variable);
