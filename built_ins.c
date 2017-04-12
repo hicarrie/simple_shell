@@ -2,7 +2,7 @@
 
 
 	int shell_exit(void);
-	void shell_env(void);
+	int shell_env(void);
 
 	char *built_in_str[] = 
 	{
@@ -21,7 +21,7 @@
 		return (0);
 	}
 
-	void print_env(void)
+	int print_env(void)
 	{
 		unsigned int i;
 		extern char **environ;
@@ -32,5 +32,6 @@
 			write(STDOUT_FILENO, environ[i], _strlen(environ[i]));
 			i++
 		}
-}	
+		return (0);
+}
 	
