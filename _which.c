@@ -50,9 +50,7 @@ char *_which(char *command)
 		current = current->next;
 		printf("Current->value: %s\n", current->value);
 	}
-	printf("Before free_list\n");
-	free_list(list);
-	printf("After free_list\n");
+
 	return (return_path);
 }
 
