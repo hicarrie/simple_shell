@@ -12,6 +12,7 @@ int main(void)
 	pid_t child_pid;
 	struct stat buf;
 	unsigned int length;
+	int builtin_status;
 
 	while (TRUE)
 	{
@@ -31,6 +32,11 @@ int main(void)
 		line[length - 1] = '\0';
 
 		tokens = _strtok(line);
+
+		builtin_status = builtin_execute(tokens);
+
+		if (builtin_status == 0)
+			exit(EXIT_SUCCESS);
 
 		child_pid = fork();
 		if (child_pid == -1)

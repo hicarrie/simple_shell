@@ -23,11 +23,9 @@ typedef struct list_s
 
 typedef struct built_s
 {
-	int *exit;
-	int *env;
-	struct built_s *next;
+        char *name;
+	int (*p)(void);
 }built_s;
-	
 
 
 int _strlen(char *s);
@@ -46,7 +44,7 @@ void _printenv(void);
 int shell_env(void);
 int shell_exit(void);
 int builtin_execute(char **tokens);
-int shell_num_builtins(char **str);
+int shell_num_builtins(built_s builtin[]);
 
 /* prototypes for the helper functions for PATH linked list */
 list_s *path_list(char *variable);

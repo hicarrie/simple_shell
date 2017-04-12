@@ -6,44 +6,46 @@
 **/
 int builtin_execute(char **tokens)
 {
-	int i;
-	int (*shell_exit)(void);
-	int (*shell_env)(void);
+	int status;
+	unsigned int length;
+	unsigned int num;
+	unsigned int i;
 
-	/* char *builtin_str[] =
-	{
-		"exit",
-		"env"
+	built_s builtin[] = {
+		{"exit", shell_exit},
+		{"env", shell_env},
+		{NULL, NULL}
 	};
 
-	int (*builtin_func[])(void) =
-	{
-		&shell_exit,
-		&shell_env
-		}; */
-
-	/* struct of function pointers */
-
 	if (tokens[0] == NULL)
-	{
 		return (1);
-	}
-	for (i = 0; i < shell_num_builtins(builtin_str); i++)
+
+	length = _strlen(tokens[0]);
+
+	num = shell_num_builtins(builtin);
+	for (i = 0; i < num; i++)
 	{
-		if (_strcmp(tokens[0], builtin_str[i]) == 0)
-			return (*builtin_func[i])(void);
+		if (_strcmp(tokens[0], builtin[i].name, length) == 0)
+		{
+			status = (builtin[i].p)();
+			return (status);
+		}
 	}
-	return (0);
+	return (1);
 }
-
-
 
 /**
 **shell_num_builtins - this check num built-ins
 **Return: num of built-ins
 **/
 
-int shell_num_builtins(char **str)
+int shell_num_builtins(built_s builtin[])
 {
-	return (sizeof(str) / sizeof(char **));
+	unsigned int i;
+
+	i = 0;
+	while (builtin[i].name != NULL)
+		i++;
+
+	return (i);
 }
