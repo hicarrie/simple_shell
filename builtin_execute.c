@@ -8,6 +8,7 @@ int builtin_execute(char **tokens)
 {
 	int i;
 	
+	
 	if (tokens[0] == NULL)
 	{
 		return (1);
@@ -27,7 +28,21 @@ int builtin_execute(char **tokens)
 **Return: num of built-ins
 **/
 
-int shell_num_builtins()
+int shell_num_builtins(void)
 {
 	return (sizeof(builtin_str) / sizeof(char *);
+}
+
+/**
+**
+**
+**/
+char **builtin_str(void)
+{
+	char *built_in_str[] = 
+	{
+		"exit",
+		"env"
+	};
+	return (*built_in_str[]);
 }
