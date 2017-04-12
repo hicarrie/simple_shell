@@ -1,14 +1,9 @@
 #include "holberton.h"
+/**
+**
+**
+**/
 
-
-	int shell_exit(void);
-	int shell_env(void);
-
-	char *built_in_str[] = 
-	{
-		"exit",
-		"env"
-	};
 
 	int (*built_in_func[]) (char **) = 
 	{
