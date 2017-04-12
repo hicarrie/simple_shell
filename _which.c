@@ -25,11 +25,11 @@ char *_which(char *command)
 
 	while (current->next != NULL)
 	{
-		if (current->dir == NULL)
+		if (current->value == NULL)
 			;
 		else
 		{
-			full_path = _strcat(current->dir, "/");
+			full_path = _strcat(current->value, "/");
 			full_path = _strcat(full_path, command);
 			if (stat(full_path, &buf) == 0)
 				return (full_path);

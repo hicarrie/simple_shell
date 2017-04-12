@@ -18,11 +18,11 @@ list_s *path_list(char *variable)
 	{
 		current = head;
 
-		new = malloc(sizeof(path_t));
+		new = malloc(sizeof(list_s));
 		if (new == NULL)
 			return(NULL);
 
-		new->dir = token;
+		new->value = token;
 		new->next = NULL;
 
 		if (head == NULL)
