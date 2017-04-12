@@ -4,9 +4,8 @@
  * _getline - gets string from stdin
  * Return: pointer to string
  */
-char *_getline(FILE *fp)
+char *_getline(FILE *fp, char *line)
 {
-	char *line = NULL;
 	size_t len = 0;
 	ssize_t read;
 

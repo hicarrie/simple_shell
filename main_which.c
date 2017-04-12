@@ -7,10 +7,13 @@
 int main(void)
 {
 	char *path;
+	char *full_path = NULL;
 
-	path = _which("ls");
+	path = _which("ls", full_path);
 
 	printf("%s\n", path);
+
+	free(full_path);
 
 	return (0);
 }

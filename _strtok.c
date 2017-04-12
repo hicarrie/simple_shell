@@ -4,9 +4,8 @@
  * strtok - tokenizes string
  * Return: pointer to array of tokens
  */
-char **_strtok(char *str)
+char **_strtok(char *str, char **tokens)
 {
-	char **tokens;
 	char *token;
 	unsigned int i;
 

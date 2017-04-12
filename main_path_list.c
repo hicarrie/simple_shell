@@ -7,12 +7,12 @@
 int main(void)
 {
 	char *path;
-	list_s *list;
+	list_s *list = NULL;
 	list_s *current;
 
 	path = _getenv("PATH");
 
-	list = path_list(path);
+	list = path_list(path, list);
 
 	current = list;
 
@@ -21,6 +21,8 @@ int main(void)
 		printf("%s\n", current->value);
 		current = current->next;
 	}
+
+	free_list(list);
 
 	return (0);
 }

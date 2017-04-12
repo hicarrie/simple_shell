@@ -5,74 +5,48 @@
  * @command: command to search for
  * Return: full path name of command
  */
-char *_which(char *command)
+char *_which(char *command, char *full_path)
 {
 	char *path;
-        list_s *list;
+        list_s *list = NULL;
 	list_s *current;
-	char *full_path;
-	char *return_path = NULL;
 	unsigned int command_length;
 	unsigned int path_length;
 	struct stat buf;
 
 	path = _getenv("PATH");
 
-	list = path_list(path);
-	printf("Address of list: %p\n", (void *)list);
+	list = path_list(path, list);
 
 	command_length = _strlen(command);
 
 	current = list;
 
-	while (current->next != NULL) /* segfault */
+	while (current->next != NULL)
 	{
-		printf("Address of next node: %p\n", (void *)current->next);
 		if (current->value == NULL)
 			;
 		else
 		{
 			path_length = _strlen(current->value);
 
-			full_path = malloc(sizeof(char) * (path_length + command_length + 1));
+			full_path = malloc(sizeof(char) * (path_length + command_length + 2));
 			if (full_path == NULL)
 				return (NULL);
 
-			full_path = _strcat(current->value, "/");
-			full_path = _strcat(full_path, command);
+		        _strncpy(full_path, current->value, path_length);
+		        full_path[path_length] = '/';
+		        _strncpy(full_path + path_length + 1, command, command_length);
+			full_path[path_length + command_length + 1] = '\0';
 
 			if (stat(full_path, &buf) == 0)
-			{
-				return_path = full_path;
 				break;
-			}
+			else
+				full_path = NULL;
 		}
 		current = current->next;
-		printf("Current->value: %s\n", current->value);
 	}
 
-	return (return_path);
-}
-
-/**
- * free_list - frees a list_s list
- * @head: list to be freed
- * Return: void
- */
-void free_list(list_s *head)
-{
-	list_s *current;
-
-	while (head != NULL)
-	{
-		current = head;
-		printf("Before iterating to next node\n");
-		head = head->next;
-		printf("Before freeing current->name\n");
-		free(current->name);
-		printf("Before freeing current->value\n");
-		free(current->value);
-		printf("Before freeing node\n");
-		free(current);
-	}
+	free_list(list);
+	return (full_path);
 }

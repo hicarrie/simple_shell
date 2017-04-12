@@ -12,18 +12,16 @@
 **/
 void free_list(list_s *head)
 {
-	list_s *free_list;
+	list_s *current;
 
 	if (head == NULL)
 		return;
 
 	while (head != NULL)
 	{
-		free_list = head;
+		current = head;
 		head = head->next;
-		free(free_list->name);
-		free(free_list->value);
-		free(free_list);
+		free(current);
 	}
 }
 
@@ -35,6 +33,7 @@ void free_list(list_s *head)
 **@str: the string
 **Return: # of nodes in the linked list
 **/
+/*
 list_s *add_node_end(list_s **head, const char *str)
 {
 	list_s *last_node;
@@ -48,8 +47,8 @@ list_s *add_node_end(list_s **head, const char *str)
 		return (NULL);
 	}
 
-	last_node->str = strdup(str);
-	last_node->len = _strlen(str);
+	last_node->name = strdup(str);
+	last_node->value = _strlen(str);
 	last_node->next = NULL;
 
 	if (*head == NULL)
@@ -63,7 +62,7 @@ list_s *add_node_end(list_s **head, const char *str)
 
 	new_node->next = last_node;
 	return (last_node);
-}
+	} */
 
 /**
 **delete_nodeint_at_index - deletes node at start.
@@ -71,6 +70,7 @@ list_s *add_node_end(list_s **head, const char *str)
 **@index:arg
 **Return: 1 or -1
 **/
+/*
 int delete_nodeint_at_index(list_s **head, unsigned int index)
 {
 	unsigned int i;
@@ -95,7 +95,7 @@ int delete_nodeint_at_index(list_s **head, unsigned int index)
 	tmp->next = after->next;
 	free(after);
 	return (1);
-}
+	} */
 
 /**
 **change_node_value - change the value for a particular name

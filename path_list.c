@@ -5,9 +5,8 @@
  * @variable: pointer to PATH variable
  * Return: pointer to head of linked list of path variables
  */
-list_s *path_list(char *variable)
+list_s *path_list(char *variable, list_s *head)
 {
-	list_s *head;
 	list_s *new;
 	list_s *current;
 	char *token;

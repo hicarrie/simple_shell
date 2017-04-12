@@ -2,17 +2,17 @@
 
 /**
  * main - uses getline and prints line
- * @ac: number of arguments
- * @av: pointer to array of strings
  * Return: 0
  */
-int main (int ac, char *av[])
+int main (void)
 {
-	char *line;
+	char *line = NULL;
 
-	line = _getline(stdin);
+	line = _getline(stdin, line);
 
 	printf("%s\n", line);
+
+	free(line);
 
 	return (0);
 }

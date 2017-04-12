@@ -8,13 +8,13 @@
  */
 int main(void)
 {
-	char *str;
-	char **tokens;
+	char *str = NULL;
+	char **tokens = NULL;
 	unsigned int i;
 
-	str = _getline(stdin);
+	str = _getline(stdin, str);
 
-	tokens = _strtok(str);
+	tokens = _strtok(str, tokens);
 
 	i = 0;
 	while (tokens[i] != NULL)
@@ -22,6 +22,9 @@ int main(void)
 		printf("%s\n", tokens[i]);
 		i++;
 	}
+
+	free(str);
+	free(tokens);
 
 	return (0);
 }

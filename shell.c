@@ -6,9 +6,9 @@
  */
 int main(void)
 {
-	char *line;
-	char **tokens;
-	char *full_path;
+	char *line = NULL;
+	char **tokens = NULL;
+	char *full_path = NULL;
 	int status;
 	int builtin_status;
 	struct stat buf;
@@ -26,7 +26,7 @@ int main(void)
 			_puts(PROMPT);
 
 		/* get input from user */
-		line = _getline(stdin);
+		line = _getline(stdin, line);
 		if (line == NULL)
 			return (0);
 
@@ -35,7 +35,7 @@ int main(void)
 		line[length - 1] = '\0';
 
 		/* tokenize input */
-		tokens = _strtok(line);
+		tokens = _strtok(line, tokens);
 
 		/* check for builtins */
 		builtin_status = builtin_execute(tokens);
@@ -43,7 +43,7 @@ int main(void)
 			exit(EXIT_SUCCESS);
 
 		/* check PATH for executables */
-		full_path = _which(tokens[0]);
+		full_path = _which(tokens[0], full_path);
 		if (full_path == NULL)
 			full_path = tokens[0];
 
@@ -67,9 +67,9 @@ int main(void)
 			wait(&status);
 	}
 
-	free(full_path);
 	free(line);
 	free(tokens);
+	free(full_path);
 
 	return (0);
 }
