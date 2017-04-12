@@ -35,9 +35,8 @@ void free_list(list_s *head)
 **@str: the string
 **Return: # of nodes in the linked list
 **/
-list_t *add_node_end(list_t **head, const char *str)
+list_s *add_node_end(list_s **head, const char *str)
 {
-
 	list_s *last_node;
 	list_s *new_node;
 
@@ -65,27 +64,6 @@ list_t *add_node_end(list_t **head, const char *str)
 	new_node->next = last_node;
 	return (last_node);
 }
-/**
-**_strlen - function returns the length of a string.
-**@s: variable
-**Description: returns length
-**Return: variable
-**/
-int _strlen(const char *s)
-{
-	int i;
-
-	i = 0;
-
-	if (s == NULL)
-		return (0);
-
-	while (s[i] != '\0')
-	i++;
-
-	return (i);
-}
-
 
 /**
 **delete_nodeint_at_index - deletes node at start.
@@ -93,7 +71,7 @@ int _strlen(const char *s)
 **@index:arg
 **Return: 1 or -1
 **/
-int delete_nodeint_at_index(listint_t **head, unsigned int index)
+int delete_nodeint_at_index(list_s **head, unsigned int index)
 {
 	unsigned int i;
 	list_s *tmp, *after;

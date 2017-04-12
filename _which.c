@@ -17,7 +17,6 @@ char *_which(char *command)
 	struct stat buf;
 
 	path = _getenv("PATH");
-	printf("path: %s\n", path);
 
 	list = path_list(path);
 	printf("Address of list: %p\n", (void *)list);
@@ -51,7 +50,31 @@ char *_which(char *command)
 		current = current->next;
 		printf("Current->value: %s\n", current->value);
 	}
-
+	printf("Before free_list\n");
 	free_list(list);
+	printf("After free_list\n");
 	return (return_path);
+}
+
+/**
+ * free_list - frees a list_s list
+ * @head: list to be freed
+ * Return: void
+ */
+void free_list(list_s *head)
+{
+	list_s *current;
+
+	while (head != NULL)
+	{
+		current = head;
+		printf("Before iterating to next node\n");
+		head = head->next;
+		printf("Before freeing current->name\n");
+		free(current->name);
+		printf("Before freeing current->value\n");
+		free(current->value);
+		printf("Before freeing node\n");
+		free(current);
+	}
 }
