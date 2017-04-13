@@ -15,7 +15,7 @@ void _puts(char *str)
 }
 
 /**
- * _strcmp - compares two strings to find out if they are the same
+ * _strcmp - compares two strings to find out if they are exactly the same
  * @name: name supplied by user to search for
  * @variable: variable to compare against
  * @length: length of name
@@ -42,10 +42,10 @@ int _strcmp(char *name, char *variable, unsigned int length)
 
 /**
  * _strncmp - compares two strings of different lengths to see if all characters
- * up to length are the same
+ * up to given length are the same
  * @name: name supplied by user to search for
  * @variable: variable to compare against
- * @length: length of name
+ * @length: length to compare up to
  * Return: 1 if strings are equal, -1 if they are not
  */
 int _strncmp(char *name, char *variable, unsigned int length)
@@ -80,9 +80,11 @@ char *_strcpy(char *dest, char *src)
 }
 
 /**
- * *_strncpy - copies string pointed to by src to the buffer pointed to dest
+ * *_strncpy - copies string pointed to by src up to a given length to the
+ * buffer pointed to dest
  * @dest: string destination
  * @src: string source
+ * @length: number of bytes to copy
  * Return: the pointer to dest
  */
 char *_strncpy(char *dest, char *src, unsigned int length)
