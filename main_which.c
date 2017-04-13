@@ -6,12 +6,11 @@
  */
 int main(void)
 {
-	char *path;
 	char *full_path = NULL;
 
-	path = _which("ls", full_path);
+	full_path = _which("ls", full_path);
 
-	printf("%s\n", path);
+	printf("Path: %s\n", full_path);
 
 	free(full_path);
 

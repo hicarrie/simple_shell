@@ -21,6 +21,7 @@ list_s *path_list(char *variable, list_s *head)
 		if (new == NULL)
 			return(NULL);
 
+		new->name = "";
 		new->value = token;
 		new->next = NULL;
 
