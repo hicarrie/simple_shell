@@ -63,6 +63,23 @@ int _strncmp(char *name, char *variable, unsigned int length)
 }
 
 /**
+ * *_strcpy - copies string pointed to by src to the buffer pointed to dest
+ * @dest: string destination
+ * @src: string source
+ * Return: the pointer to dest
+ */
+char *_strcpy(char *dest, char *src)
+{
+	int i;
+	int j = _strlen(src);
+
+	for (i = 0; i <= j; i++)
+		dest[i] = src[i];
+
+	return (dest);
+}
+
+/**
  * *_strncpy - copies string pointed to by src to the buffer pointed to dest
  * @dest: string destination
  * @src: string source
@@ -73,6 +90,23 @@ char *_strncpy(char *dest, char *src, unsigned int length)
 	unsigned int i;
 
 	for (i = 0; i < length; i++)
+		dest[i] = src[i];
+
+	return (dest);
+}
+
+/**
+ * _memcpy - copies memory area
+ * @dest: memory area to be copied to
+ * @src: memory area to be copied from
+ * @n: number of bytes to be copied
+ * Return: pointer to dest
+ */
+char *_memcpy(char *dest, char *src, unsigned int n)
+{
+	unsigned int i;
+
+	for (i = 0; i < n; i++)
 		dest[i] = src[i];
 
 	return (dest);

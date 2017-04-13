@@ -8,7 +8,7 @@ int main(void)
 {
 	char *line = NULL;
 	char **tokens = NULL;
-	char *full_path = NULL;
+	char *full_path;
 	int status;
 	int builtin_status;
 	struct stat buf;
