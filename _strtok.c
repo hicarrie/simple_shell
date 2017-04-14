@@ -9,10 +9,6 @@ char **_strtok(char *str, char **tokens)
 	char *token;
 	unsigned int i;
 
-	tokens = malloc(sizeof(char) * BUFFER);
-	if (tokens == NULL)
-		exit(0);
-
 	token = strtok(str, " ");
 
 	i = 0;

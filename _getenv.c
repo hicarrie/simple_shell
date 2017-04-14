@@ -32,6 +32,10 @@ char *_getenv(const char *name)
 		i++;
 	}
 
+	for (i = 0; environ_copy[i] != '\0'; i++)
+		free(environ_copy[i]);
+	free(environ_copy);
+
 	return (NULL);
 }
 

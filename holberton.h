@@ -37,25 +37,7 @@ typedef struct built_s
 {
         char *name;
 	int (*p)(void);
-}built_s;
-/*
- * struct main_s - struct to contain information on shell 
- * @env: pointer to environment
- * @path_list: pointer to function
- * @args: pointer to arguments being passed
- * Description: struct for builtin functions
- */
-typedef struct main_s
-{
-	char **env;
-	list_t *path_list;
-	char **args;
-	
-}main_t
-
-
-
-
+} built_s;
 
 char *_getline(FILE *fp, char *line);
 char *_which(char *command, char *full_path);

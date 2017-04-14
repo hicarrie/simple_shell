@@ -35,6 +35,10 @@ int main(void)
 		line[length - 1] = '\0';
 
 		/* tokenize input */
+		tokens = malloc(sizeof(char) * BUFFER);
+		if (tokens == NULL)
+			exit(0);
+
 		tokens = _strtok(line, tokens);
 
 		/* check for builtins */
@@ -65,11 +69,11 @@ int main(void)
 		}
 		else
 			wait(&status);
-	}
 
-	free(line);
-	free(tokens);
-	free(full_path);
+		free(line);
+		free(tokens);
+		free(full_path);
+	}
 
 	return (0);
 }

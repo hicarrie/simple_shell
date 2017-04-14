@@ -36,6 +36,7 @@ char *_which(char *command, char *full_path)
 			break;
 		else
 		{
+			free(full_path);
 			full_path = NULL;
 			token = strtok(NULL, ":");
 		}
