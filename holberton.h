@@ -13,6 +13,8 @@
 #define TRUE 1
 #define PROMPT "$ "
 
+extern char **environ;
+
 /*
  * struct list_s - linked list of variables
  * @name: name
