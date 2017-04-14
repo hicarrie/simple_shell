@@ -1,14 +1,8 @@
 #include "holberton.h"
-
-/**
-**helper_functions - these are helper functions for linked list
-**/
-
 /**
 **free_list - free the list
 **@head: head of the nodes or start of them
 **Return: void
-**
 **/
 void free_list(list_s *head)
 {
@@ -33,7 +27,6 @@ void free_list(list_s *head)
 **@str: the string
 **Return: # of nodes in the linked list
 **/
-/*
 list_s *add_node_end(list_s **head, const char *str)
 {
 	list_s *last_node;
@@ -62,44 +55,4 @@ list_s *add_node_end(list_s **head, const char *str)
 
 	new_node->next = last_node;
 	return (last_node);
-	} */
-
-/**
-**delete_nodeint_at_index - deletes node at start.
-**@head:arg
-**@index:arg
-**Return: 1 or -1
-**/
-/*
-int delete_nodeint_at_index(list_s **head, unsigned int index)
-{
-	unsigned int i;
-	list_s *tmp, *after;
-
-	tmp = *head;
-
-	if (head == NULL || *head == NULL)
-	return (-1);
-
-	if (index == 0)
-	{
-		*head = tmp->next;
-		free(tmp);
-		return (1);
-	}
-
-	for (i = 0; i < index - 1 && tmp != NULL; i++)
-		tmp = tmp->next;
-
-	after = tmp->next;
-	tmp->next = after->next;
-	free(after);
-	return (1);
-	} */
-
-/**
-**change_node_value - change the value for a particular name
-** @name: name of node
-** @value: new value
-**Return: 1 on success, -1 on failure
-**/
+}
