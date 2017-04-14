@@ -2,9 +2,10 @@
 
 /**
  * prompt - checks mode and prints prompt if in interactive mode
- * @input - file stream
+ * @fd: file stream
+ * @buf: buffer
  * Return: 0 on success
- */
+**/
 int prompt(int fd, struct stat buf)
 {
 	fstat(fd, &buf);

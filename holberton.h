@@ -15,13 +15,14 @@
 
 extern char **environ;
 
-/*
+/**
  * struct list_s - linked list of variables
  * @name: name
  * @value: value
  * @next: pointer to next node
- * Description: generic linked list struct for variables
- */
+ *
+ * Description: generic linked list struct for variables.
+**/
 typedef struct list_s
 {
 	char *name;
@@ -29,15 +30,16 @@ typedef struct list_s
 	struct list_s *next;
 } list_s;
 
-/*
+/**
  * struct built_s - linked list of builtins
  * @name: name of builtin
  * @p: pointer to function
- * Description: struct for builtin functions
- */
+ *
+ * Description: struct for builtin functions.
+**/
 typedef struct built_s
 {
-        char *name;
+	char *name;
 	int (*p)(void);
 } built_s;
 
