@@ -40,13 +40,12 @@ char *_getenv(const char *name)
 }
 
 /**
- * _copyenv - copies environment variable
+ * env_copy - copies environment variable
  * @env_copy: pointer to copy of environment variable
  * Return: double pointer to copy of environment variable
  */
 char **env_copy(char **env_copy)
 {
-	extern char **environ;
 	char *variable;
 	unsigned int variable_length;
 	unsigned int length;
