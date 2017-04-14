@@ -18,12 +18,7 @@ int main(void)
 	while (TRUE)
 	{
 		/* check interactive / non-interactive mode */
-		fstat(STDIN_FILENO, &buf);
-
-		if (S_ISFIFO(buf.st_mode))
-			;
-		else if (S_ISCHR(buf.st_mode))
-			_puts(PROMPT);
+		prompt(STDIN_FILENO, buf);
 
 		/* get input from user */
 		line = _getline(stdin, line);

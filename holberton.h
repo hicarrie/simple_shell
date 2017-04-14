@@ -39,6 +39,7 @@ typedef struct built_s
 	int (*p)(void);
 } built_s;
 
+int prompt(int fd, struct stat buf);
 char *_getline(FILE *fp, char *line);
 char *_which(char *command, char *full_path);
 
