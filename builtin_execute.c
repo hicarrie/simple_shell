@@ -36,6 +36,7 @@ int builtin_execute(char **tokens)
 
 /**
 **shell_num_builtins - this check num built-ins
+**@builtin: takes the builin
 **Return: num of built-ins
 **/
 
