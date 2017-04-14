@@ -19,7 +19,7 @@ char *_which(char *command, char *full_path)
 	command_length = _strlen(command);
 
 	token = strtok(path, ":");
-	while (path != '\0')
+	while (token != NULL)
 	{
 		path_length = _strlen(token);
 
@@ -36,11 +36,9 @@ char *_which(char *command, char *full_path)
 			break;
 		else
 		{
-			free(full_path);
 			full_path = NULL;
+			token = strtok(NULL, ":");
 		}
-
-		token = strtok(NULL, ":");
 	}
 
 	return (full_path);
