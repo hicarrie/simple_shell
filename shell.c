@@ -24,7 +24,8 @@ int main(void)
 		line = _getline(stdin, line);
 		if (line == NULL)
 			return (0);
-
+		if (_strcmp(line, "\n", 1) == 0)
+			continue;
 		/* remove newline character from input */
 		length = _strlen(line);
 		line[length - 1] = '\0';
