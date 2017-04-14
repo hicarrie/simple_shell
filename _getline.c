@@ -2,7 +2,9 @@
 
 /**
  * _getline - gets string from stdin
- * Return: pointer to string
+ *@fp: taking in the use input
+ *@line: storing user input
+ *Return: pointer to string
  */
 char *_getline(FILE *fp, char *line)
 {
