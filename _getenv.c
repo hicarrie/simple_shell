@@ -5,18 +5,28 @@
  * @name: environment variable to get
  * Return: pointer to environment variable or NULL if there is no match
  */
-char *_getenv(const char *name)
+char *_getenv(const char *name, char **environ_copy)
 {
-	char **environ_copy = NULL;
 	char *variable;
 	char *value;
 	int compare;
 	unsigned int length;
 	unsigned int i;
 
-	environ_copy = env_copy(environ_copy);
+	/* make copy of global environment variable */
+	length = 0;
+	while (environ[length] != NULL)
+		length++;
+
+	environ_copy = malloc(sizeof(char **) * (length));
+	if (environ_copy == NULL)
+		return (NULL);
+
+	environ_copy = env_copy(environ_copy, length);
 
 	length = _strlen((char *)name);
+
+	/* iterate through environment variable until given name is found */
 	i = 0;
 	while (environ_copy[i] != NULL)
 	{
@@ -32,10 +42,6 @@ char *_getenv(const char *name)
 		i++;
 	}
 
-	for (i = 0; environ_copy[i] != '\0'; i++)
-		free(environ_copy[i]);
-	free(environ_copy);
-
 	return (NULL);
 }
 
@@ -44,20 +50,11 @@ char *_getenv(const char *name)
  * @env_copy: pointer to copy of environment variable
  * Return: double pointer to copy of environment variable
  */
-char **env_copy(char **env_copy)
+char **env_copy(char **env_copy, unsigned int length)
 {
 	char *variable;
 	unsigned int variable_length;
-	unsigned int length;
 	unsigned int i;
-
-	length = 0;
-	while (environ[length] != NULL)
-		length++;
-
-	env_copy = malloc(sizeof(char **) * (length));
-	if (env_copy == NULL)
-		return (NULL);
 
 	i = 0;
 	while (i < length)

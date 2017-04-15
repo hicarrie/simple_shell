@@ -16,8 +16,6 @@ int main(void)
 	int builtin_status;
 	struct stat buf;
 	pid_t child_pid;
-	unsigned int length;
-	unsigned int i;
 
 	path = _getenv("PATH", environ_copy);
 
@@ -28,25 +26,24 @@ int main(void)
 
 		/* get input from user */
 		line = _getline(stdin, line);
-		if (line == NULL)
-			return (0);
+	        if (line == NULL)
+		        return (0);
+
+		/* check if input == \n */
 		if (_strcmp(line, "\n", 1) == 0)
 			continue;
-		/* remove newline character from input */
-		length = _strlen(line);
-		/*if (_strcmp(line, "\n", length) == 0)
-			continue; */
-		/*line = parser(line); */
-		length = _strlen(line);
-
-		line[length - 1] = '\0';
 
 		/* tokenize input */
 		tokens = malloc(sizeof(char) * BUFFER);
 		if (tokens == NULL)
-		        continue;
+		{
+			perror("Error");
+			exit(EXIT_FAILURE);
+		}
 
 		tokens = _strtok(line, tokens);
+		if (tokens[0] == NULL)
+			continue;
 
 		/* check for builtins */
 		builtin_status = builtin_execute(tokens);
@@ -76,12 +73,6 @@ int main(void)
 		}
 		else
 			wait(&status);
-
-		for (i = 0; tokens[i] != '\0'; i++)
-			free(tokens[i]);
-		free(tokens);
-
-		free(full_path);
 	}
 	return (0);
 }

@@ -6,19 +6,26 @@
  * @full_path: full path of command to execute
  * Return: pointer to full_path
  */
-char *_which(char *command, char *full_path)
+char *_which(char *command, char *full_path, char *path)
 {
-	char *path;
 	unsigned int command_length;
 	unsigned int path_length;
+	unsigned int original_path_length;
+	char *path_copy;
 	char *token;
-	struct stat buf;
-
-	path = _getenv("PATH");
 
 	command_length = _strlen(command);
+	original_path_length = strlen(path);
 
-	token = strtok(path, ":");
+	/* make copy of path variable for strtok */
+	path_copy = malloc(sizeof(char) * original_path_length + 1);
+	if (path_copy == NULL)
+		return (0);
+
+	_strcpy(path_copy, path);
+
+	/* copy PATH directory + command name and check if it exists */
+	token = strtok(path_copy, ":");
 	while (token != NULL)
 	{
 		path_length = _strlen(token);
@@ -32,7 +39,8 @@ char *_which(char *command, char *full_path)
 	        _strncpy(full_path + path_length + 1, command, command_length);
 		full_path[path_length + command_length + 1] = '\0';
 
-		if (stat(full_path, &buf) == 0)
+		/* if directory + command exists, stop iterating and return */
+		if (access(full_path, X_OK) == 0)
 			break;
 		else
 		{
@@ -41,6 +49,6 @@ char *_which(char *command, char *full_path)
 			token = strtok(NULL, ":");
 		}
 	}
-
+	free(path_copy);
 	return (full_path);
 }
