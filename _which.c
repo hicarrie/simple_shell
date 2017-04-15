@@ -4,6 +4,7 @@
  * which - searches directories in PATH variable for command
  * @command: to search for
  * @full_path: full path of command to execute
+ * @path: full PATH variable
  * Return: pointer to full_path
  */
 char *_which(char *command, char *full_path, char *path)

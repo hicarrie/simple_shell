@@ -6,18 +6,19 @@
  */
 int main(void)
 {
-	char *line = NULL;
+	char *line;
 	char **tokens = NULL;
-	char **environ_copy = NULL;
 	char *full_path;
 	char *path;
+	ssize_t read;
+	size_t len = 0;
 	int status;
 	int execve_status;
 	int builtin_status;
 	struct stat buf;
 	pid_t child_pid;
 
-	path = _getenv("PATH", environ_copy);
+	path = _getenv("PATH");
 
 	while (TRUE)
 	{
@@ -25,9 +26,10 @@ int main(void)
 		prompt(STDIN_FILENO, buf);
 
 		/* get input from user */
-		line = _getline(stdin, line);
-	        if (line == NULL)
-		        return (0);
+		line = NULL;
+		read = getline(&line, &len, stdin);
+		if (read == -1)
+			exit(EXIT_SUCCESS);
 
 		/* check if input == \n */
 		if (_strcmp(line, "\n", 1) == 0)
@@ -73,6 +75,13 @@ int main(void)
 		}
 		else
 			wait(&status);
+
+	        free(tokens);
+		free(line);
+		free(full_path);
 	}
+
+	free(path);
+
 	return (0);
 }

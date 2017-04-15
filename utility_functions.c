@@ -1,20 +1,6 @@
 #include "holberton.h"
 
 /**
- * _puts - prints a string without a \n
- * @str: string to print
- * Return: void
- */
-void _puts(char *str)
-{
-	unsigned int length;
-
-	length = _strlen(str);
-
-	write(STDOUT_FILENO, str, length);
-}
-
-/**
  * _strcmp - compares two strings to find out if they are exactly the same
  * @name: name supplied by user to search for
  * @variable: variable to compare against

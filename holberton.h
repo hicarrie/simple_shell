@@ -44,7 +44,6 @@ typedef struct built_s
 } built_s;
 
 void prompt(int fd, struct stat buf);
-char *_getline(FILE *fp, char *line);
 char *parser(char *line);
 char *_which(char *command, char *full_path, char *path);
 
@@ -63,10 +62,13 @@ int shell_exit(void);
 int builtin_execute(char **tokens);
 int shell_num_builtins(built_s builtin[]);
 
-/* prototypes for the helper functions for variable linked lists */
-char *_getenv(const char *name, char **environ_copy);
-char **env_copy(char **env_copy, unsigned int length);
+/* prototypes for the helper functions for path linked list */
+char *_getenv(const char *name);
+char **copy_env(char **environ_copy, unsigned int environ_length);
 list_s *path_list(char *variable, list_s *head);
+
+/* prototypes for free functions */
+void free_dp(char **array, unsigned int length);
 void free_list(list_s *head);
 
 #endif /* HOLBERTON_H */
