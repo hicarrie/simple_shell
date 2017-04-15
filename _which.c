@@ -31,7 +31,7 @@ char *_which(char *command, char *full_path, char *path)
 	{
 		path_length = _strlen(token);
 
-		full_path = malloc(sizeof(char) * (path_length + command_length + 2));
+		full_path = malloc(sizeof(char) * (path_length + command_length) + 2);
 			if (full_path == NULL)
 				return (NULL);
 
