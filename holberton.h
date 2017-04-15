@@ -13,13 +13,16 @@
 #define TRUE 1
 #define PROMPT "$ "
 
-/*
+extern char **environ;
+
+/**
  * struct list_s - linked list of variables
  * @name: name
  * @value: value
  * @next: pointer to next node
- * Description: generic linked list struct for variables
- */
+ *
+ * Description: generic linked list struct for variables.
+**/
 typedef struct list_s
 {
 	char *name;
@@ -27,38 +30,22 @@ typedef struct list_s
 	struct list_s *next;
 } list_s;
 
-/*
+/**
  * struct built_s - linked list of builtins
  * @name: name of builtin
  * @p: pointer to function
- * Description: struct for builtin functions
- */
+ *
+ * Description: struct for builtin functions.
+**/
 typedef struct built_s
 {
-        char *name;
+	char *name;
 	int (*p)(void);
-}built_s;
-/*
- * struct main_s - struct to contain information on shell 
- * @env: pointer to environment
- * @path_list: pointer to function
- * @args: pointer to arguments being passed
- * Description: struct for builtin functions
- */
-typedef struct main_s
-{
-	char **env;
-	list_t *path_list;
-	char **args;
-	
-}main_t
+} built_s;
 
-
-
-
-
-char *_getline(FILE *fp, char *line);
-char *_which(char *command, char *full_path);
+void prompt(int fd, struct stat buf);
+char *parser(char *line);
+char *_which(char *command, char *full_path, char *path);
 
 /* utility functions */
 void _puts(char *str);
@@ -75,10 +62,13 @@ int shell_exit(void);
 int builtin_execute(char **tokens);
 int shell_num_builtins(built_s builtin[]);
 
-/* prototypes for the helper functions for variable linked lists */
+/* prototypes for the helper functions for path linked list */
 char *_getenv(const char *name);
-char **env_copy(char **env_copy);
+char **copy_env(char **environ_copy, unsigned int environ_length);
 list_s *path_list(char *variable, list_s *head);
+
+/* prototypes for free functions */
+void free_dp(char **array, unsigned int length);
 void free_list(list_s *head);
 
 #endif /* HOLBERTON_H */

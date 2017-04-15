@@ -1,18 +1,23 @@
 #include "holberton.h"
 /**
-**
-**
+**shell_exit - exits the shell
+**Return: void
 **/
 
 	int shell_exit(void)
 	{
-	        return (0);
+		return (0);
 	}
+
+
+/**
+**shell_env - prints environment
+**Return: void
+**/
 
 	int shell_env(void)
 	{
 		unsigned int i;
-		extern char **environ;
 
 		i = 0;
 		while (environ[i] != NULL)

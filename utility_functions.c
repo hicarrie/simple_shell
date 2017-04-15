@@ -1,20 +1,6 @@
 #include "holberton.h"
 
 /**
- * _puts - prints a string without a \n
- * @str: string to print
- * Return: void
- */
-void _puts(char *str)
-{
-	unsigned int length;
-
-	length = _strlen(str);
-
-	write(STDOUT_FILENO, str, length);
-}
-
-/**
  * _strcmp - compares two strings to find out if they are exactly the same
  * @name: name supplied by user to search for
  * @variable: variable to compare against
@@ -41,7 +27,7 @@ int _strcmp(char *name, char *variable, unsigned int length)
 }
 
 /**
- * _strncmp - compares two strings of different lengths to see if all characters
+ * _strncmp - compares two strings
  * up to given length are the same
  * @name: name supplied by user to search for
  * @variable: variable to compare against
@@ -92,23 +78,6 @@ char *_strncpy(char *dest, char *src, unsigned int length)
 	unsigned int i;
 
 	for (i = 0; i < length; i++)
-		dest[i] = src[i];
-
-	return (dest);
-}
-
-/**
- * _memcpy - copies memory area
- * @dest: memory area to be copied to
- * @src: memory area to be copied from
- * @n: number of bytes to be copied
- * Return: pointer to dest
- */
-char *_memcpy(char *dest, char *src, unsigned int n)
-{
-	unsigned int i;
-
-	for (i = 0; i < n; i++)
 		dest[i] = src[i];
 
 	return (dest);

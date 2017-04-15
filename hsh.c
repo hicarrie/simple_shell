@@ -6,36 +6,46 @@
  */
 int main(void)
 {
-	char *line = NULL;
+	char *line;
 	char **tokens = NULL;
 	char *full_path;
+	char *path;
+	ssize_t read;
+	size_t len = 0;
 	int status;
+	int execve_status;
 	int builtin_status;
 	struct stat buf;
 	pid_t child_pid;
-	unsigned int length;
+
+	path = _getenv("PATH");
 
 	while (TRUE)
 	{
 		/* check interactive / non-interactive mode */
-		fstat(STDIN_FILENO, &buf);
-
-		if (S_ISFIFO(buf.st_mode))
-			;
-		else if (S_ISCHR(buf.st_mode))
-			_puts(PROMPT);
+		prompt(STDIN_FILENO, buf);
 
 		/* get input from user */
-		line = _getline(stdin, line);
-		if (line == NULL)
-			return (0);
+		line = NULL;
+		read = getline(&line, &len, stdin);
+		if (read == -1)
+			exit(EXIT_SUCCESS);
 
-		/* remove newline character from input */
-		length = _strlen(line);
-		line[length - 1] = '\0';
+		/* check if input == \n */
+		if (_strcmp(line, "\n", 1) == 0)
+			continue;
 
 		/* tokenize input */
+		tokens = malloc(sizeof(char) * BUFFER);
+		if (tokens == NULL)
+		{
+			perror("Error");
+			exit(EXIT_FAILURE);
+		}
+
 		tokens = _strtok(line, tokens);
+		if (tokens[0] == NULL)
+			continue;
 
 		/* check for builtins */
 		builtin_status = builtin_execute(tokens);
@@ -43,7 +53,7 @@ int main(void)
 			exit(EXIT_SUCCESS);
 
 		/* check PATH for executables */
-		full_path = _which(tokens[0], full_path);
+		full_path = _which(tokens[0], full_path, path);
 		if (full_path == NULL)
 			full_path = tokens[0];
 
@@ -56,8 +66,8 @@ int main(void)
 		}
 		if (child_pid == 0)
 		{
-			status = execve(full_path, tokens, NULL);
-			if (status == -1)
+			execve_status = execve(full_path, tokens, NULL);
+			if (execve_status == -1)
 			{
 				perror("Error");
 				exit(EXIT_FAILURE);
@@ -65,11 +75,13 @@ int main(void)
 		}
 		else
 			wait(&status);
+
+	        free(tokens);
+		free(line);
+		free(full_path);
 	}
 
-	free(line);
-	free(tokens);
-	free(full_path);
+	free(path);
 
 	return (0);
 }
