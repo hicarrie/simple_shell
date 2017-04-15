@@ -72,13 +72,13 @@ int main(void)
 				perror("Error");
 				exit(EXIT_FAILURE);
 			}
+			free(full_path);
 		}
 		else
 			wait(&status);
 
 	        free(tokens);
 		free(line);
-		free(full_path);
 	}
 
 	free(path);
