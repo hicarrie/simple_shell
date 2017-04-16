@@ -1,10 +1,10 @@
 <p align="center">
 
-  <img src="ghostinshell.png" width="350\"/>
+  <img src="ghostinshell.png" width="400\"/>
 
 <br>
 
-<h1><p align="center">Holberton Low-Level Programming</h1></p></font>
+<h1><p align="center">Simple Shell</h1></p></font>
 
 <br>
 
