@@ -4,15 +4,12 @@
 
 <br>
 
-<<<<<<< HEAD
+
 <h1><p align="center">Ghost Shell- A simple shell</h1></p></font>
-=======
-<h1><p align="center">Simple Shell</h1></p></font>
->>>>>>> 816485f480822759fd941a3a48bb06519d752258
 
-<br>
 
-<h2><p>Projects:</p></h2>
+
+
 
 # GSH
 Ghost Shell also known as the shell is a simple command line prompt that takes the most basics of commands that are present in the bash shell and runs them. This shell was built as a project for Holberton School.
