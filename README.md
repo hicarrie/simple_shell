@@ -46,13 +46,13 @@ Flags are arguments of commands given that are supported by the shell.
 
 
 ### List of useful commands
-`cat` - prints and concatenates files to the standard output
-`cp` -copies a file into another file
-`grep` - helps to search for a file in a specific pattern
-`less` - will let you go backward and forward in the files
-`ls` - will list all files and directories in current working directory
-`mv` - helps to move one file into another file
-`pwd` - given you the current working directory
+* `cat` - prints and concatenates files to the standard output
+* `cp` -copies a file into another file
+* `grep` - helps to search for a file in a specific pattern
+* `less` - will let you go backward and forward in the files
+* `ls` - will list all files and directories in current working directory
+* `mv` - helps to move one file into another file
+* `pwd` - given you the current working directory
 
 
 ### Comments
