@@ -1,10 +1,14 @@
 <p align="center">
 
-  <img src="ghostintheshell.png" width="350\"/>
+  <img src="ghostinshell.png" width="400\"/>
 
 <br>
 
+<<<<<<< HEAD
 <h1><p align="center">Ghost Shell- A simple shell</h1></p></font>
+=======
+<h1><p align="center">Simple Shell</h1></p></font>
+>>>>>>> 816485f480822759fd941a3a48bb06519d752258
 
 <br>
 
