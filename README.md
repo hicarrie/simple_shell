@@ -16,7 +16,7 @@ Ghost Shell also known as the shell is a simple command line prompt that takes t
 
 `the shell` works like the bash and other basic shells. 
 
-The shell works by being compiled using GCC 4.8.5 compiler or later versions. The shell can compile using `gcc 4.8.4 -Wall -Werror -Wextra -pedantic *c -o shell. 
+The shell works by being compiled using GCC 4.8.5 compiler or later versions. The shell can compile using `gcc 4.8.4 -Wall -Werror -Wextra -pedantic *c -o shell`. 
 
 ## Example of how to launch the shell after compiling:
 `./shell`
@@ -74,8 +74,16 @@ Flags are arguments of commands given that are supported by the shell.
 ## Files
 * `README.md` : Current file, contains information about this project
 * `holberton.h` : Header file, contains all prototypes for funcitons used, as well as libriaries.
-* `_printf.c` : Contains the code for `_printf`
-* `_putchar.c`: File for function that prints a character
-* `pf_funcs.c`: File containing the specific functions for conversion specifiers
-* `man_3_printf`: man page for our `_printf`
-* `testing`: folder for test files
+* `hsh.c`: folder for test files
+* `ghostinshell.png`: image in readme file.
+* `_getenv.c` : Contains the code for `_printf`
+* `_getline.c`: File for function that prints a character
+* `which.c`: File containing the specific functions for conversion specifiers
+* `builtin_execute.c`: man page for our `_printf`
+* `builtins.c`: folder for test files
+* `child.c`: folder for test files
+* `free.c`: folder for test files
+* `path_list.c`: folder for test files
+* `prompt.c`: folder for test files
+* `tokenizer.c`: folder for test files
+* `utility_functions.c`: folder for test files.
