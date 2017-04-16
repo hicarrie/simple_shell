@@ -1,6 +1,6 @@
 <p align="center">
 
-  <img src="ghostintheshell.png" width="350\"/>
+  <img src="ghostinshell.png" width="350\"/>
 
 <br>
 
