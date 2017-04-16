@@ -44,7 +44,7 @@ typedef struct built_s
 } built_s;
 
 void prompt(int fd, struct stat buf);
-char *parser(char *line);
+char **tokenizer(char *str, char **tokens);
 char *_which(char *command, char *full_path, char *path);
 
 /* utility functions */
@@ -52,7 +52,6 @@ void _puts(char *str);
 int _strlen(char *s);
 int _strcmp(char *name, char *variable, unsigned int length);
 int _strncmp(char *name, char *variable, unsigned int length);
-char **_strtok(char *str, char **tokens);
 char *_strcpy(char *dest, char *src);
 char *_strncpy(char *dest, char *src, unsigned int length);
 

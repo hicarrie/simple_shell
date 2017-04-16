@@ -6,15 +6,14 @@
  */
 int main(void)
 {
-	char *line;
-	char **tokens = NULL;
-	char *full_path;
 	char *path;
-	ssize_t read;
-	size_t len = 0;
+	char *line;
+	char **tokens;
+	char *full_path;
 	int status, flag;
-	int execve_status;
-	int builtin_status;
+	int execve_status, builtin_status;
+	ssize_t read;
+	size_t len;
 	struct stat buf;
 	pid_t child_pid;
 
@@ -25,6 +24,7 @@ int main(void)
 
 		/* get input from user */
 		line = NULL;
+		len = 0;
 		read = getline(&line, &len, stdin);
 		if (read == -1)
 		{
@@ -37,6 +37,7 @@ int main(void)
 			continue;
 
 		/* tokenize input */
+		tokens = NULL;
 		tokens = malloc(sizeof(char) * BUFFER);
 		if (tokens == NULL)
 		{
@@ -44,7 +45,7 @@ int main(void)
 			exit(EXIT_FAILURE);
 		}
 
-		tokens = _strtok(line, tokens);
+		tokens = tokenizer(line, tokens);
 		if (tokens[0] == NULL)
 			continue;
 

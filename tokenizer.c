@@ -6,7 +6,7 @@
  * @tokens: pointer to array of tokenized input
  * Return: pointer to array of tokens
  */
-char **_strtok(char *str, char **tokens)
+char **tokenizer(char *str, char **tokens)
 {
 	char *token;
 	unsigned int i;
