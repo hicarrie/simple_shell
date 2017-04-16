@@ -25,7 +25,6 @@ extern char **environ;
 **/
 typedef struct list_s
 {
-	char *name;
 	char *value;
 	struct list_s *next;
 } list_s;
