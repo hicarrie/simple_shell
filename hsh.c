@@ -6,82 +6,42 @@
  */
 int main(void)
 {
-	char *line;
-	char **tokens = NULL;
-	char *full_path;
 	char *path;
-	ssize_t read;
-	size_t len = 0;
-	int status;
-	int execve_status;
-	int builtin_status;
+	char *line;
+	char *full_path;
+	char **tokens;
+	int flag;
 	struct stat buf;
-	pid_t child_pid;
-
-	path = _getenv("PATH");
 
 	while (TRUE)
 	{
 		/* check interactive / non-interactive mode */
 		prompt(STDIN_FILENO, buf);
 
-		/* get input from user */
-		line = NULL;
-		read = getline(&line, &len, stdin);
-		if (read == -1)
-			exit(EXIT_SUCCESS);
+		line = _getline(stdin);
 
 		/* check if input == \n */
 		if (_strcmp(line, "\n", 1) == 0)
 			continue;
 
-		/* tokenize input */
-		tokens = malloc(sizeof(char) * BUFFER);
-		if (tokens == NULL)
-		{
-			perror("Error");
-			exit(EXIT_FAILURE);
-		}
-
-		tokens = _strtok(line, tokens);
+		tokens = tokenizer(line);
 		if (tokens[0] == NULL)
 			continue;
 
-		/* check for builtins */
-		builtin_status = builtin_execute(tokens);
-		if (builtin_status == 0)
-			exit(EXIT_SUCCESS);
+	        builtin_execute(tokens);
 
-		/* check PATH for executables */
+		/* search path for executable */
+		flag = 0; /* 0 if full_path is not malloc'd */
+		path = _getenv("PATH");
 		full_path = _which(tokens[0], full_path, path);
 		if (full_path == NULL)
 			full_path = tokens[0];
-
-		/* create child process to run executables */
-		child_pid = fork();
-		if (child_pid == -1)
-		{
-			perror("Error");
-			exit(EXIT_FAILURE);
-		}
-		if (child_pid == 0)
-		{
-			execve_status = execve(full_path, tokens, NULL);
-			if (execve_status == -1)
-			{
-				perror("Error");
-				exit(EXIT_FAILURE);
-			}
-			free(full_path);
-		}
 		else
-			wait(&status);
+			flag = 1; /* if full_path was malloc'd, flag for freeing */
 
-	        free(tokens);
-		free(line);
+		child(full_path, tokens);
+
+		free_all(tokens, path, line, full_path, flag);
 	}
-
-	free(path);
-
 	return (0);
 }
