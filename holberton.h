@@ -44,8 +44,10 @@ typedef struct built_s
 } built_s;
 
 void prompt(int fd, struct stat buf);
-char **tokenizer(char *str, char **tokens);
+char *_getline(FILE *fp);
+char **tokenizer(char *str);
 char *_which(char *command, char *full_path, char *path);
+int child(char *full_path, char **tokens);
 
 /* utility functions */
 void _puts(char *str);
@@ -67,6 +69,7 @@ char **copy_env(char **environ_copy, unsigned int environ_length);
 list_s *path_list(char *variable, list_s *head);
 
 /* prototypes for free functions */
+void free_all(char **tokens, char *path, char *line, char *full_path, int flag);
 void free_dp(char **array, unsigned int length);
 void free_list(list_s *head);
 
