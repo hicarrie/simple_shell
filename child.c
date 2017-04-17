@@ -11,6 +11,7 @@ int child(char *full_path, char **tokens)
 	pid_t child_pid;
 	int status;
 	int execve_status;
+	char **envp = environ;
 
 	child_pid = fork();
 	if (child_pid == -1)
@@ -20,7 +21,7 @@ int child(char *full_path, char **tokens)
 	}
 	if (child_pid == 0)
 	{
-		execve_status = execve(full_path, tokens, NULL);
+		execve_status = execve(full_path, tokens, envp);
 		if (execve_status == -1)
 		{
 			perror("Error");
