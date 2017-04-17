@@ -14,7 +14,7 @@ char *_which(char *command, char *full_path, char *path)
 	char *token;
 
 	command_length = _strlen(command);
-	original_path_length = strlen(path);
+	original_path_length = _strlen(path);
 
 	/* make copy of path variable for strtok */
 	path_copy = malloc(sizeof(char) * original_path_length + 1);
