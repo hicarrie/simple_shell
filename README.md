@@ -35,6 +35,7 @@ The shell also contains two builtins which are commands that are within the shel
 
 ### Commands
 
+
 ### Command Seperation
 
 
@@ -59,17 +60,16 @@ Flags are arguments of commands given that are supported by the shell.
 
 
 ### Builtins
+There are two builtins programmed into the shell. Below is a description and use for each builtin.
 
+* `env` - The env command is a command that tells the shell program to display all of the environment variables with their values. It is a    way to access those values through the shell.
 
-### cd
-
-### help
-
-### exit
+* `exit` - If you wish to exit out of the shell the user can use the builtin `exit`. 
 
 
 ### Exiting commands and the shell
-
+To exit out of a command or process the user can use Ctrl c. Control c stops a process and causes it to abort.
+The user can also utilize the command ctrl D which will just exit. When the command ctrl D is used an exit status of 0 is given. Using exit, you can input its exit status or it is defaulted to the status of the last command executed.
 
 ## Files
 * `README.md` : Current file, contains information about this project
