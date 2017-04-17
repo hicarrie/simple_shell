@@ -83,11 +83,10 @@ The user can also utilize the command `ctrl D` which will just exit. When the co
 * `builtins.c`: File containing the two builtins 
 * `child.c`: File that forks and creates parent child processee
 * `free.c`: File with free malloc functions
-* `path_list.c`: File containing linked list to add node at end and way to go through path directory
 * `prompt.c`: File with actual prompt line $.
 * `tokenizer.c`: File that creates funtion to tokenize an array of strings 
 * `utility_functions.c`: 
 
 ### Authors
 * Wendy Segura - https://github.com/wendysegura
-* Carrie Ybar - https://github.com/hicarrie
+* Carrie Ybay - https://github.com/hicarrie
