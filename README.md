@@ -74,16 +74,16 @@ Flags are arguments of commands given that are supported by the shell.
 ## Files
 * `README.md` : Current file, contains information about this project
 * `holberton.h` : Header file, contains all prototypes for funcitons used, as well as libriaries.
-* `hsh.c`: folder for test files
-* `ghostinshell.png`: image in readme file.
+* `hsh.c`: Main file that uses most functions and executes them within this file.
+* `ghostinshell.png`: Image in readme file.
 * `_getenv.c` : Contains the code for `_printf`
-* `_getline.c`: File for function that prints a character
+* `_getline.c`: File for getting prompt and user input
 * `which.c`: File containing the specific functions for conversion specifiers
-* `builtin_execute.c`: man page for our `_printf`
-* `builtins.c`: folder for test files
-* `child.c`: folder for test files
-* `free.c`: folder for test files
-* `path_list.c`: folder for test files
-* `prompt.c`: folder for test files
-* `tokenizer.c`: folder for test files
-* `utility_functions.c`: folder for test files.
+* `builtin_execute.c`: Executing the builtins 
+* `builtins.c`: File containing the two builtins 
+* `child.c`: File that forks and creates parent child processee
+* `free.c`: File with free malloc functions
+* `path_list.c`: File containing linked list to add node at end and way to go through path directory
+* `prompt.c`: File with actual prompt line $.
+* `tokenizer.c`: File that creates funtion to tokenize an array of strings 
+* `utility_functions.c`: 
