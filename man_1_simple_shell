@@ -32,9 +32,9 @@ $PATH:
 .PP
 Ghost shell has two builtinin commands it also integrates with other commands\
 that can be located in the PATH. The output of ghost shell is to replicate\
-exactly as the shell 'sh' or 'dash'.
+exactly as the shell 'sh' or 'bash'.
 .PP
-.B $ man dash
+.B $ man bash
 . Ghost Shell\
 The ghost shell takes commands from files, shell scripts and user input in both interactive or non-interactive mode.
 
