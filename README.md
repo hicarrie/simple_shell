@@ -87,3 +87,7 @@ The user can also utilize the command `ctrl D` which will just exit. When the co
 * `prompt.c`: File with actual prompt line $.
 * `tokenizer.c`: File that creates funtion to tokenize an array of strings 
 * `utility_functions.c`: 
+
+### Authors
+* Wendy Segura - https://github.com/wendysegura
+* Carrie Ybar - https://github.com/hicarrie
