@@ -33,17 +33,9 @@ For more information on cat, you can use the `man` command which will show a man
 
 The shell also contains two builtins which are commands that are within the shell itself. The two builtins are `exit` and `env`. You can also use `help` command to know which builtins are provided by the shell. The `help` command works similarly to the manual where it provides further detail or information on given builtin.
 
-### Commands
-
-
-### Command Seperation
-
-
 ### Compilation
 All files will be compiled with the following: `$ gcc -Wall -Werror -Wextra -pedantic *.c`
 
-### Flags
-Flags are arguments of commands given that are supported by the shell.
 
 
 ### List of useful commands
@@ -54,9 +46,6 @@ Flags are arguments of commands given that are supported by the shell.
 * `ls` - will list all files and directories in current working directory
 * `mv` - helps to move one file into another file
 * `pwd` - given you the current working directory
-
-
-### Comments
 
 
 ### Builtins
@@ -73,9 +62,9 @@ The user can also utilize the command `ctrl D` which will just exit. When the co
 
 ## Files
 * `README.md` : Current file, contains information about this project
-* `holberton.h` : Header file, contains all prototypes for funcitons used, as well as libriaries.
-* `hsh.c`: Main file that uses most functions and executes them within this file.
-* `ghostinshell.png`: Image in readme file.
+* `holberton.h` : Header file, contains all prototypes for funcitons used, as well as libriaries
+* `hsh.c`: Main file that uses most functions and executes them within this file
+* `ghostinshell.png`: Image in readme file
 * `_getenv.c` : Contains the code for `_printf`
 * `_getline.c`: File for getting prompt and user input
 * `which.c`: File containing the specific functions for conversion specifiers
@@ -83,9 +72,11 @@ The user can also utilize the command `ctrl D` which will just exit. When the co
 * `builtins.c`: File containing the two builtins
 * `child.c`: File that forks and creates parent child processee
 * `free.c`: File with free malloc functions
-* `prompt.c`: File with actual prompt line $.
-* `tokenizer.c`: File that creates funtion to tokenize an array of strings
-* `utility_functions.c`:
+* `prompt.c`: File with actual prompt line $
+* `tokenizer.c`: File that creates function to tokenize an array of strings
+* `utility_functions.c`: helper functions
+
+### Comments
 
 ### Authors
 * Wendy Segura - https://github.com/wendysegura
