@@ -47,8 +47,8 @@ typedef struct built_s
 void prompt(int fd, struct stat buf);
 char *_getline(FILE *fp);
 char **tokenizer(char *str);
-char *_which(char *command, char *full_path, char *path);
-int child(char *full_path, char **tokens);
+char *_which(char *command, char *fullpath, char *path);
+int child(char *fullpath, char **tokens);
 void errors(int error);
 
 /* utility functions */
@@ -67,7 +67,7 @@ int shell_num_builtins(built_s builtin[]);
 /* prototypes for the helper functions for path linked list */
 char *_getenv(const char *name);
 char **copy_env(char **environ_copy, unsigned int environ_length);
-list_s *path_list(char *variable, list_s *head);
+list_s *pathlist(char *variable, list_s *head);
 
 /* prototypes for free functions */
 void free_all(char **tokens, char *path, char *line, char *fullpath, int flag);
