@@ -15,7 +15,6 @@
 /* error strings */
 #define ERR_MALLOC "Unable to malloc space\n"
 #define ERR_FORK "Unable to fork and create child process\n"
-#define ERR_EXECVE "Unable to execute file\n"
 extern char **environ;
 
 /**
