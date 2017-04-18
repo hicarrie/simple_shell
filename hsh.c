@@ -7,16 +7,14 @@ int main(void)
 {
 	char *line, *path, *fullpath;
 	char **tokens;
-	int flag, builtin_status;
+	int flag, builtin_status, child_status;
 	struct stat buf;
 
 	while (TRUE)
 	{
 		/* check interactive / non-interactive mode */
 		prompt(STDIN_FILENO, buf);
-
 		line = _getline(stdin);
-
 		/* check if input == \n */
 		if (_strcmp(line, "\n", 1) == 0)
 		{
@@ -41,7 +39,9 @@ int main(void)
 		else
 			flag = 1; /* if full_path was malloc'd, flag for freeing */
 
-		child(fullpath, tokens);
+		child_status = child(fullpath, tokens);
+		if (child_status == -1)
+			errors(2);
 		free_all(tokens, path, line, fullpath, flag);
 	}
 	return (0);
