@@ -15,7 +15,6 @@ void errors(int error)
 		break;
 
 	case 2: /* writes execve error to stderr */
-		write(STDERR_FILENO, ERR_EXECVE, _strlen(ERR_EXECVE));
 		perror("Error");
 		break;
 
