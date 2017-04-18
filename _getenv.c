@@ -33,6 +33,8 @@ char *_getenv(const char *name)
 		{
 			value = strtok(variable, "=");
 			value = strtok(NULL, " ");
+			if (value == NULL)
+				return (NULL);
 
 			path_length = _strlen(value);
 			path = malloc(sizeof(char) * path_length + 1);
