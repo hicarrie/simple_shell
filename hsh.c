@@ -5,12 +5,9 @@
  */
 int main(void)
 {
-	char *path;
-	char *line;
-	char *fullpath;
+	char *line, *path, *fullpath;
 	char **tokens;
-	int flag;
-	int builtin_status;
+	int flag, builtin_status;
 	struct stat buf;
 
 	while (TRUE)
@@ -22,7 +19,10 @@ int main(void)
 
 		/* check if input == \n */
 		if (_strcmp(line, "\n", 1) == 0)
+		{
+			free(line);
 			continue;
+		}
 
 		tokens = tokenizer(line);
 		if (tokens[0] == NULL)
