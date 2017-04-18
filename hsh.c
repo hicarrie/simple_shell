@@ -11,6 +11,7 @@ int main(void)
 	char *full_path;
 	char **tokens;
 	int flag;
+	int builtin_status;
 	struct stat buf;
 
 	while (TRUE)
@@ -28,7 +29,9 @@ int main(void)
 		if (tokens[0] == NULL)
 			continue;
 
-	        builtin_execute(tokens);
+	        builtin_status = builtin_execute(tokens);
+		if (builtin_status == 0)
+			continue;
 
 		/* search path for executable */
 		flag = 0; /* 0 if full_path is not malloc'd */

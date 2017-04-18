@@ -19,7 +19,10 @@ char *_which(char *command, char *full_path, char *path)
 	/* make copy of path variable for strtok */
 	path_copy = malloc(sizeof(char) * original_path_length + 1);
 	if (path_copy == NULL)
-		return (0);
+	{
+		errors(3);
+		return (NULL);
+	}
 	_strcpy(path_copy, path);
 
 	/* copy PATH directory + command name and check if it exists */
@@ -32,7 +35,10 @@ char *_which(char *command, char *full_path, char *path)
 
 		full_path = malloc(sizeof(char) * (path_length + command_length) + 2);
 		if (full_path == NULL)
+		{
+			errors(3);
 			return (NULL);
+		}
 
 		_strncpy(full_path, token, path_length);
 		full_path[path_length] = '/';

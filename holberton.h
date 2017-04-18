@@ -13,6 +13,11 @@
 #define TRUE 1
 #define PROMPT "$ "
 
+/* error strings */
+#define ERR_MALLOC "Unable to malloc space\n"
+#define ERR_FORK "Unable to fork and create child process\n"
+#define ERR_EXECVE "Unable to execute file\n"
+
 extern char **environ;
 
 /**
@@ -47,6 +52,7 @@ char *_getline(FILE *fp);
 char **tokenizer(char *str);
 char *_which(char *command, char *full_path, char *path);
 int child(char *full_path, char **tokens);
+void errors(int error);
 
 /* utility functions */
 void _puts(char *str);
