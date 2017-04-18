@@ -15,7 +15,7 @@ char **tokenizer(char *str)
 	tokens = malloc(sizeof(char) * BUFFER);
 	if (tokens == NULL)
 	{
-		perror("Error");
+		errors(3);
 		exit(EXIT_FAILURE);
 	}
 

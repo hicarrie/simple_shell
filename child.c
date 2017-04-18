@@ -16,7 +16,7 @@ int child(char *full_path, char **tokens)
 	child_pid = fork();
 	if (child_pid == -1)
 	{
-		perror("Error");
+	        errors(1);
 		exit(EXIT_FAILURE);
 	}
 	if (child_pid == 0)
@@ -24,7 +24,7 @@ int child(char *full_path, char **tokens)
 		execve_status = execve(full_path, tokens, envp);
 		if (execve_status == -1)
 		{
-			perror("Error");
+		        errors(2);
 			exit(EXIT_FAILURE);
 		}
 	}
