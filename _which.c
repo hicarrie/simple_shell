@@ -24,6 +24,8 @@ char *_which(char *command, char *full_path, char *path)
 
 	/* copy PATH directory + command name and check if it exists */
 	token = strtok(path_copy, ":");
+	if (token == NULL)
+		token = strtok(NULL, ":");
 	while (token != NULL)
 	{
 		path_length = _strlen(token);
