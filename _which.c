@@ -40,10 +40,10 @@ char *_which(char *command, char *fullpath, char *path)
 			return (NULL);
 		}
 
-		_strncpy(fullpath, token, path_length);
-		fullpath[path_length] = '/';
-		_strncpy(full_path + path_length + 1, command, command_length);
-		fullpath[path_length + command_length + 1] = '\0';
+		_strcpy(full_path, token, path_length);
+		full_path[path_length] = '/';
+		_strcpy(full_path + path_length + 1, command, command_length);
+		full_path[path_length + command_length + 1] = '\0';
 
 		/* if directory + command exists, stop iterating and return */
 		if (access(fullpath, X_OK) != 0)
