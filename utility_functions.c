@@ -64,25 +64,6 @@ char *_strcpy(char *dest, char *src)
 
 	return (dest);
 }
-
-/**
- * *_strncpy - copies string pointed to by src up to a given length to the
- * buffer pointed to dest
- * @dest: string destination
- * @src: string source
- * @length: number of bytes to copy
- * Return: the pointer to dest
- */
-char *_strncpy(char *dest, char *src, unsigned int length)
-{
-	unsigned int i;
-
-	for (i = 0; i < length; i++)
-		dest[i] = src[i];
-
-	return (dest);
-}
-
 /**
  * _strlen - returns the length of a string
  * @s: string to be evaluated

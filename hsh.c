@@ -1,5 +1,4 @@
 #include "holberton.h"
-
 /**
  * main - main loop of shell
  * Return: 0 on success
@@ -8,7 +7,7 @@ int main(void)
 {
 	char *path;
 	char *line;
-	char *full_path;
+	char *fullpath;
 	char **tokens;
 	int flag;
 	int builtin_status;
@@ -29,22 +28,21 @@ int main(void)
 		if (tokens[0] == NULL)
 			continue;
 
-	        builtin_status = builtin_execute(tokens);
+		builtin_status = builtin_execute(tokens);
 		if (builtin_status == 0)
 			continue;
 
 		/* search path for executable */
 		flag = 0; /* 0 if full_path is not malloc'd */
 		path = _getenv("PATH");
-		full_path = _which(tokens[0], full_path, path);
-		if (full_path == NULL)
-			full_path = tokens[0];
+		fullpath = _which(tokens[0], fullpath, path);
+		if (fullpath == NULL)
+			fullpath = tokens[0];
 		else
 			flag = 1; /* if full_path was malloc'd, flag for freeing */
 
-		child(full_path, tokens);
-
-		free_all(tokens, path, line, full_path, flag);
+		child(fullpath, tokens);
+		free_all(tokens, path, line, fullpath, flag);
 	}
 	return (0);
 }

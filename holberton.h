@@ -12,17 +12,14 @@
 #define BUFFER 1024
 #define TRUE 1
 #define PROMPT "$ "
-
 /* error strings */
 #define ERR_MALLOC "Unable to malloc space\n"
 #define ERR_FORK "Unable to fork and create child process\n"
 #define ERR_EXECVE "Unable to execute file\n"
-
 extern char **environ;
 
 /**
  * struct list_s - linked list of variables
- * @name: name
  * @value: value
  * @next: pointer to next node
  *
@@ -60,7 +57,6 @@ int _strlen(char *s);
 int _strcmp(char *name, char *variable, unsigned int length);
 int _strncmp(char *name, char *variable, unsigned int length);
 char *_strcpy(char *dest, char *src);
-char *_strncpy(char *dest, char *src, unsigned int length);
 
 /* prototypes for builtins */
 int shell_env(void);
@@ -74,8 +70,7 @@ char **copy_env(char **environ_copy, unsigned int environ_length);
 list_s *path_list(char *variable, list_s *head);
 
 /* prototypes for free functions */
-void free_all(char **tokens, char *path, char *line, char *full_path, int flag);
+void free_all(char **tokens, char *path, char *line, char *fullpath, int flag);
 void free_dp(char **array, unsigned int length);
 void free_list(list_s *head);
-
 #endif /* HOLBERTON_H */

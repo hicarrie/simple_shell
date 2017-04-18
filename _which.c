@@ -7,7 +7,7 @@
  * @path: full PATH variable
  * Return: pointer to full_path
  */
-char *_which(char *command, char *full_path, char *path)
+char *_which(char *command, char *fullpath, char *path)
 {
 	unsigned int command_length, path_length, original_path_length;
 	char *path_copy;
@@ -33,28 +33,28 @@ char *_which(char *command, char *full_path, char *path)
 	{
 		path_length = _strlen(token);
 
-		full_path = malloc(sizeof(char) * (path_length + command_length) + 2);
-		if (full_path == NULL)
+		fullpath = malloc(sizeof(char) * (path_length + command_length) + 2);
+		if (fullpath == NULL)
 		{
 			errors(3);
 			return (NULL);
 		}
 
-		_strncpy(full_path, token, path_length);
-		full_path[path_length] = '/';
+		_strncpy(fullpath, token, path_length);
+		fullpath[path_length] = '/';
 		_strncpy(full_path + path_length + 1, command, command_length);
-		full_path[path_length + command_length + 1] = '\0';
+		fullpath[path_length + command_length + 1] = '\0';
 
 		/* if directory + command exists, stop iterating and return */
-		if (access(full_path, X_OK) != 0)
+		if (access(fullpath, X_OK) != 0)
 		{
-			free(full_path);
-			full_path = NULL;
+			free(fullpath);
+			fullpath = NULL;
 			token = strtok(NULL, ":");
 		}
 		else
 			break;
 	}
 	free(path_copy);
-	return (full_path);
+	return (fullpath);
 }

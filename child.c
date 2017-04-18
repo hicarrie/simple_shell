@@ -2,11 +2,11 @@
 
 /**
  * child - function for child process
- * @full_path: full path of executable
+ * @fullpath: full path of executable
  * @tokens: tokenized user input
  * Return: 0 on success
  */
-int child(char *full_path, char **tokens)
+int child(char *fullpath, char **tokens)
 {
 	pid_t child_pid;
 	int status;
@@ -16,15 +16,15 @@ int child(char *full_path, char **tokens)
 	child_pid = fork();
 	if (child_pid == -1)
 	{
-	        errors(1);
+		errors(1);
 		exit(EXIT_FAILURE);
 	}
 	if (child_pid == 0)
 	{
-		execve_status = execve(full_path, tokens, envp);
+		execve_status = execve(fullpath, tokens, envp);
 		if (execve_status == -1)
 		{
-		        errors(2);
+			errors(2);
 			exit(EXIT_FAILURE);
 		}
 	}

@@ -3,7 +3,6 @@
 /**
  * tokenizer - tokenizes string
  * @str: user input
- * @tokens: pointer to array of tokenized input
  * Return: pointer to array of tokens
  */
 char **tokenizer(char *str)
