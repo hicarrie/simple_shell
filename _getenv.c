@@ -1,5 +1,4 @@
 #include "holberton.h"
-
 /**
  * _getenv - gets an environment variable
  * @name: environment variable to get
@@ -8,14 +7,9 @@
 char *_getenv(const char *name)
 {
 	char **environ_copy = NULL;
-	char *variable;
-	char *value;
-	char *path;
+	char *variable, *value, *path;
 	int compare;
-	unsigned int path_length;
-	unsigned int environ_length;
-	unsigned int length;
-	unsigned int i;
+	unsigned int path_length, environ_length, length, i;
 
 	environ_length = 0;
 	while (environ[environ_length] != NULL)
