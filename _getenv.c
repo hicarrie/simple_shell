@@ -27,7 +27,7 @@ char *_getenv(const char *name)
 		{
 			value = strtok(variable, "=");
 			value = strtok(NULL, " \n");
-			if (value == NULL)
+			if (value == '\0')
 				return (NULL);
 
 			path_length = _strlen(value);
