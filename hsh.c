@@ -23,14 +23,15 @@ int main(void)
 		if (tokens[0] == NULL)
 			continue;
 		builtin_status = builtin_execute(tokens);
-		if (builtin_status == 0)
-			continue;
-		else if (builtin_status == -1)
+		if (builtin_status == 0 || builtin_status == -1)
 		{
 			free(tokens);
 			free(line);
-			exit(EXIT_SUCCESS);
 		}
+		if (builtin_status == 0)
+			continue;
+		if (builtin_status == -1)
+			exit(EXIT_SUCCESS);
 		flag = 0; /* 0 if full_path is not malloc'd */
 		path = _getenv("PATH");
 		fullpath = _which(tokens[0], fullpath, path);
