@@ -37,22 +37,3 @@ void free_dp(char **array, unsigned int length)
 	free(array);
 }
 
-/**
- *free_list - free the list
- *@head: head of the nodes or start of them
- *Return: void
- */
-void free_list(list_s *head)
-{
-	list_s *current;
-
-	if (head == NULL)
-		return;
-
-	while (head != NULL)
-	{
-		current = head;
-		head = head->next;
-		free(current);
-	}
-}
