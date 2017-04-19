@@ -37,8 +37,7 @@ int main(void)
 		if (fullpath == NULL)
 			fullpath = tokens[0];
 		else
-			flag = 1; /* if full_path was malloc'd, flag for freeing */
-
+			flag = 1; /* if fullpath was malloc'd, flag to free */
 		child_status = child(fullpath, tokens);
 		if (child_status == -1)
 			errors(2);
