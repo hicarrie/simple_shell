@@ -16,7 +16,7 @@ Ghost Shell also known as the shell is a simple command line prompt that takes t
 
 `the shell` works like the bash and other basic shells.
 
-The shell works by being compiled using GCC 4.8.5 compiler or later versions. The shell can compile using `gcc 4.8.4 -Wall -Werror -Wextra -pedantic *c -o shell`.
+The shell works by being compiled using GCC 4.8.5 compiler or later versions. The shell can compile using `gcc 4.8.4 -Wall -Werror -Wextra -pedantic *.c -o shell`.
 
 ## Example of how to launch the shell after compiling:
 `./shell`
